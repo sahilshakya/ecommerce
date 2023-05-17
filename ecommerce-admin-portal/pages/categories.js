@@ -1,13 +1,12 @@
 import Layout from "@/components/Layout";
-import React from "react";
 
-const orders = () => {
+const categories = () => {
   return (
     <div className="flex">
       <Layout></Layout>
-      orders
+      categories
     </div>
   );
 };
 
-export default orders;
+export default categories;

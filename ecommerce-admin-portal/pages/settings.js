@@ -1,13 +1,13 @@
 import Layout from "@/components/Layout";
 import React from "react";
 
-const orders = () => {
+const settings = () => {
   return (
     <div className="flex">
       <Layout></Layout>
-      orders
+      settings
     </div>
   );
 };
 
-export default orders;
+export default settings;

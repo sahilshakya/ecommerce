@@ -1,7 +1,17 @@
+import Layout from "@/components/Layout";
 import React from "react";
 
-const products = () => {
-  return <div>products</div>;
+const Products = () => {
+  return (
+    <div className="flex">
+      <Layout></Layout>
+      <div>
+        <button>
+          <Link href="/product/new">Add new Products</Link>
+        </button>
+      </div>
+    </div>
+  );
 };
 
-export default products;
+export default Products;
