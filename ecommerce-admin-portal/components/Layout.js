@@ -12,13 +12,18 @@ const Layout = ({ children }) => {
 
   if (!session) {
     return (
-      <div>
-        <button
-          onClick={(event) => signInHandler(event)}
-          className="bg-blue-400 flex align-middle p-4 rounded-lg"
-        >
-          SignIn with Google
-        </button>
+      <div className="w-screen h-screen flex flex-col justify-center items-center">
+        <h2 className="text-center text-red-400 text-xl p-5">
+          Login Pannel for Admin
+        </h2>
+        <div className="">
+          <button
+            onClick={(event) => signInHandler(event)}
+            className="bg-blue-500 text-white p-4 rounded-lg"
+          >
+            SignIn with Google
+          </button>
+        </div>
       </div>
     );
   }
