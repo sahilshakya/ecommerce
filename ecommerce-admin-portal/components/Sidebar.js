@@ -9,7 +9,7 @@ const Sidebar = () => {
   const inActiveLink = "flex gap-2 p-1";
   const { pathname } = useRouter();
   return (
-    <aside className="bg-gray-300 text-black  p-4 flex flex-col gap-4 h-screen">
+    <aside className="bg-gray-300 text-black  p-4 flex flex-col gap-4 h-screen ">
       <div className="mb-7 mr-4 text-xl">
         <Logo />
       </div>

@@ -21,3 +21,7 @@ label, option,select{
 table.basic{
     @apply w-full bg-white rounded-sm shadow-sm;
 }
+
+table.basic tr td{
+    @apply py-4 px-3
+}
