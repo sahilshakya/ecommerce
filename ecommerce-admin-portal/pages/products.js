@@ -6,19 +6,20 @@ import React, { useState, useEffect } from "react";
 
 const Products = () => {
   const [products, setProdcts] = useState([]);
+
   useEffect(() => {
     getProducts().then((resp) => {
       setProdcts(resp.data);
     });
   }, []);
 
-  const deleteProduct = async (e, products) => {
+  const deleteProduct = async (e, product) => {
     e.preventDefault();
     try {
-      await axios.delete("/api/products?id=" + products._id);
+      await axios.delete("/api/products?id=" + product._id);
 
       const data = products.filter((prod) => {
-        return prod.id !== products._id;
+        return prod._id !== product._id;
       });
       setProdcts(data);
     } catch (err) {
@@ -37,6 +38,8 @@ const Products = () => {
       <table className="mt-10 table-auto basic">
         <thead>
           <tr>
+            {/* <td>Product image</td> */}
+
             <td>Product Name</td>
             <td>Product Price</td>
           </tr>
@@ -46,8 +49,12 @@ const Products = () => {
             products.map((product) => {
               return (
                 <tr key={product._id}>
+                  {/* <td>
+                    {}
+                  </td> */}
+
                   <td>{product.title}</td>
-                  <td>{product.price}</td>
+                  <td>Rs. {product.price}</td>
                   <td>
                     <button
                       onClick={(e) => deleteProduct(e, product)}

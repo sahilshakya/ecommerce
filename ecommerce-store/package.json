@@ -19,5 +19,8 @@
     "react-dom": "18.2.0",
     "stripe": "^11.16.0",
     "styled-components": "^5.3.9"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
   }
 }
