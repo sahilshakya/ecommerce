@@ -1,15 +1,21 @@
 import Layout from "@/components/Layout";
+import { BounceSpinLoader } from "@/components/Loader";
 import axios from "axios";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { ReactSortable } from "react-sortablejs";
 
 const newProduct = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [images, setImages] = useState([]);
+  const [category, setCategory] = useState("");
   const [categories, setCategories] = useState([]);
 
   const [isuploading, setISUploading] = useState(false);
+
+  const router = useRouter();
 
   const categ = async () => {
     const resp = await axios.get("/api/categories");
@@ -18,6 +24,14 @@ const newProduct = () => {
   useEffect(() => {
     categ();
   }, []);
+
+  const saveProduct = async (e) => {
+    e.preventDefault();
+    const data = { title, description, category, price, images };
+    console.log(data);
+    await axios.post("/api/products", data);
+    router.push("/products");
+  };
 
   const uploadImages = async (e) => {
     const { files } = e.target;
@@ -38,6 +52,9 @@ const newProduct = () => {
       setISUploading(false);
     }
   };
+  const setImageOrder = (images) => {
+    setImages(images);
+  };
   return (
     <div>
       <Layout>
@@ -55,7 +72,7 @@ const newProduct = () => {
           <label>Category</label>
           <select
             onChange={(e) => {
-              setCategories(e.target.value);
+              setCategory(e.target.value);
             }}
           >
             <option value="">Uncategorized</option>
@@ -70,6 +87,25 @@ const newProduct = () => {
           </select>
           <label>Photos</label>
           <div className="mb-2 flex flex-wrap ">
+            <ReactSortable
+              list={images}
+              className="flex flex-wrap gap-1"
+              setList={setImageOrder}
+            >
+              {images.length > 0 &&
+                images.map((image) => {
+                  return (
+                    <div key={image}>
+                      <img src={image} className="h-20 mx-1" />
+                    </div>
+                  );
+                })}
+            </ReactSortable>
+            {isuploading && (
+              <div className="h-20 m-3 text-center">
+                <BounceSpinLoader></BounceSpinLoader>
+              </div>
+            )}
             <label className="w-20 h-20 cursor-pointer  flex justify-center items-center bg-gray-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +138,7 @@ const newProduct = () => {
           ></input>
 
           <button
-            onClick=""
+            onClick={saveProduct}
             className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
           >
             Save
