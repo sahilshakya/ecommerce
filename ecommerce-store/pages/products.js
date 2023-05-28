@@ -1,24 +1,9 @@
-import FeatureProduct from "@/components/FeatureProduct";
 import NavBar from "@/components/NavBar";
 import NewProducts from "@/components/NewProducts";
-import { getProductByID, getProducts } from "@/services/axios.service";
-import { useEffect, useState } from "react";
+import ProductCard from "@/components/ProductCard";
+import React, { useState } from "react";
 
-export default function HomePage() {
-  const [product, setProduct] = useState({
-    _id: "646db9d61e549014fcd962bc",
-    title: "Mansoon by subin bhattarai",
-    description: "Contact us for more info",
-    price: 270,
-    images: [
-      "https://res.cloudinary.com/face-images-kann/image/upload/v1684912591/dmg19gitmz4vlsr2xszo.jpg",
-    ],
-    category: "646db83d1e549014fcd96291",
-    createdAt: "2023-05-24T07:16:38.795Z",
-    updatedAt: "2023-05-24T07:16:38.795Z",
-    v: 0,
-  });
-
+const Product = ({}) => {
   const [products, setProducts] = useState([
     {
       _id: "646db9d61e549014fcd962bc",
@@ -47,22 +32,21 @@ export default function HomePage() {
       v: 0,
     },
   ]);
-
-  const id = "646db9d61e549014fcd962bc";
-  useEffect(() => {
-    getProductByID(id).then((values) => {
-      console.log(values.data);
-      setProduct(values.data);
-    });
-    getProducts().then((values) => {
-      setProducts(values.data);
-    });
-  }, []);
   return (
-    <>
+    <div>
       <NavBar />
-      <FeatureProduct product={product} />
-      <NewProducts products={products} />
-    </>
+      <div className="">
+        <h3 className="text-center text-xl text-purple-600 p-3 ">
+          Products Available
+        </h3>
+        <div className="flex flex-wrap gap-6 m-2">
+          {products.map((prod) => {
+            return <ProductCard key={prod._id} prod={prod} />;
+          })}
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default Product;
