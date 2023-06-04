@@ -1,9 +1,12 @@
+import CartState from "@/context/CartState";
 import "@/styles/global.css";
 
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Component {...pageProps} />
+      <CartState>
+        <Component {...pageProps} />
+      </CartState>
     </>
   );
 }

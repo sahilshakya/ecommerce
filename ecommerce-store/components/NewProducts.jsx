@@ -4,13 +4,11 @@ import ProductCard from "./ProductCard";
 const NewProducts = ({ products }) => {
   return (
     <>
-      <div className="m-4">
-        <div className="text-xl text-center text-purple-600"> New Products</div>
-        <div className="flex flex-wrap mt-6 gap-3 ">
-          {products.map((prod) => {
-            return <ProductCard key={prod._id} prod={prod} />;
-          })}
-        </div>
+      <div className="text-center text-4xl mt-5"> New Products</div>
+      <div className="mt-6 flex flex-wrap gap-10 justify-center">
+        {products.map((prod) => {
+          return <ProductCard key={prod._id} prod={prod} />;
+        })}
       </div>
     </>
   );
