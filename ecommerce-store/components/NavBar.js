@@ -26,17 +26,17 @@ const NavBar = () => {
             </svg>
             <Link href="/">
               <label className="text-black text-xl font-bold cursor-ponter ms-2 cursor-pointer">
-                Shopmandu
+                FitNepal
               </label>
             </Link>
           </div>
           <nav className="nav flex gap-5">
-            <Link href="/products">
+            {/* <Link href="/products">
               <label className="cursor-pointer">Products</label>
             </Link>
             <Link href="/categories">
               <label className="cursor-pointer">Categories</label>
-            </Link>
+            </Link> */}
             <Link href="/cart">
               <label className="cursor-pointer">
                 Cart ({cartProduct.length})
