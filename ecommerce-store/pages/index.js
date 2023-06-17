@@ -1,4 +1,5 @@
 import FeatureProduct from "@/components/FeatureProduct";
+import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import NewProducts from "@/components/newProducts";
 
@@ -11,12 +12,13 @@ export default function HomePage({ products, product }) {
       <NavBar />
       <FeatureProduct product={product} />
       <NewProducts products={products} />
+      <Footer />
     </>
   );
 }
 
 export async function getServerSideProps() {
-  const featuredProductId = "64731841fc2037d6184e527b";
+  const featuredProductId = "64893fa03ad7e336d416827f";
   await mongooseConnect();
   const featuredProduct = await Product.findById(featuredProductId);
 

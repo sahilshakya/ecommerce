@@ -37,10 +37,16 @@ const NavBar = () => {
             <Link href="/categories">
               <label className="cursor-pointer">Categories</label>
             </Link> */}
+            <Link href="/">
+              <label className="cursor-pointer">Home </label>
+            </Link>
             <Link href="/cart">
               <label className="cursor-pointer">
                 Cart ({cartProduct.length})
               </label>
+            </Link>
+            <Link href="/exercise">
+              <label className="cursor-pointer">Exercise List</label>
             </Link>
             <Link href="/account">
               <label className="cursor-pointer">Account</label>

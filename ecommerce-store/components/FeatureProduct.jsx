@@ -12,7 +12,7 @@ const FeatureProduct = ({ product }) => {
   };
   return (
     <>
-      {/* <div className="bg-gray-900 text-white py-10 ps-4">
+      <div className="bg-gray-900 text-white py-10 ps-4">
         <div className="grid gap-4 md:grid-cols-2">
           <div className="mt-8 order-2 md:order-1 ">
             <h1 className="text-2xl md:text-3xl font-semibold mb-2">
@@ -20,7 +20,7 @@ const FeatureProduct = ({ product }) => {
             </h1>
             <p className="text-gray-300 text-sm mb-4">{product.description}</p>
             <div>
-              <Link href={"/products/2"}>
+              <Link href={"/products/" + product._id}>
                 <label className="cursor-pointer text-blue-600">
                   <button
                     type="button"
@@ -30,7 +30,7 @@ const FeatureProduct = ({ product }) => {
                   </button>
                 </label>
               </Link>
-              <Link href={"/products/2"}>
+              <Link href={"/products/"}>
                 <button
                   onClick={(e) => addToCart(e, product._id)}
                   class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800"
@@ -50,7 +50,7 @@ const FeatureProduct = ({ product }) => {
             />
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };

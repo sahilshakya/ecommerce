@@ -42,6 +42,7 @@ const Products = () => {
 
             <td>Product Name</td>
             <td>Product Price</td>
+            <td>Product Image</td>
           </tr>
         </thead>
         <tbody>
@@ -55,6 +56,15 @@ const Products = () => {
 
                   <td>{product.title}</td>
                   <td>Rs. {product.price}</td>
+                  <td>
+                    <div className="w-12 h-16 p-1 border border-gray-300 rounded-lg flex items-center justify-center">
+                      <img
+                        className="max-w-full max-h-full"
+                        src={product.images[0]}
+                        alt=""
+                      />
+                    </div>
+                  </td>
                   <td>
                     <button
                       onClick={(e) => deleteProduct(e, product)}
