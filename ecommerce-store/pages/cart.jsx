@@ -134,7 +134,7 @@ const CartPage = () => {
                         </div>
                       </td>
                       <td>
-                        $
+                        Rs.
                         {cartProduct.filter((id) => id === product._id).length *
                           product.price}
                       </td>
@@ -143,7 +143,7 @@ const CartPage = () => {
                   <tr>
                     <td></td>
                     <td></td>
-                    <td>${total}</td>
+                    <td>Rs.{total}</td>
                   </tr>
                 </tbody>
               </table>

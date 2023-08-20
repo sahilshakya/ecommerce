@@ -45,12 +45,12 @@ const NavBar = () => {
                 Cart ({cartProduct.length})
               </label>
             </Link>
-            <Link href="/exercise">
+            {/* <Link href="/exercise">
               <label className="cursor-pointer">Exercise List</label>
             </Link>
             <Link href="/account">
               <label className="cursor-pointer">Account</label>
-            </Link>
+            </Link> */}
           </nav>
         </div>
       </header>
