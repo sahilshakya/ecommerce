@@ -9,7 +9,7 @@ const Sidebar = () => {
   const inActiveLink = "flex gap-2 p-1";
   const { pathname } = useRouter();
   return (
-    <aside className="bg-gray-300 text-black  p-4 flex flex-col gap-4 h-screen ">
+    <aside className="bg-gray-300 text-black  p-4 flex flex-col gap-4 sticky">
       <div className="mb-7 mr-4 text-xl">
         <Logo />
       </div>
@@ -98,7 +98,7 @@ const Sidebar = () => {
 
         <span>Category</span>
       </Link>
-      <Link
+      {/* <Link
         href={"/settings"}
         className={pathname === "/settings" ? activeLink : inActiveLink}
       >
@@ -123,7 +123,7 @@ const Sidebar = () => {
         </svg>
 
         <span>Settings</span>
-      </Link>
+      </Link> */}
       <div>
         <button
           className="flex fixed left-4 bottom-5"

@@ -10,6 +10,9 @@ const orders = () => {
   };
 
   useEffect(() => {
+    // axios.get("api/order").then((response) => {
+    //   setOrders(response.data);
+    // });
     getOrders();
   }, []);
 
@@ -19,12 +22,33 @@ const orders = () => {
       <table className="basic">
         <thead>
           <tr>
-            <td>Order name</td>
-            <td>Order price</td>
-            <td>Order time</td>
+            <td>Date</td>
+            <td>Recipient</td>
+            <td>Product</td>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          {orders.length > 0 &&
+            orders.map((order) => (
+              <tr>
+                <td>{new Date(order.createdAt).toLocaleString()}</td>
+                <td>
+                  {order.name} {order.email} <br />
+                  {order.city} {order.postalCode}
+                  <br />
+                  {order.country} <br />
+                  {order.streetAddress}
+                </td>
+                <td>
+                  {order.line_items.map((l) => (
+                    <>
+                      {l.price_data?.product_data.name} x{l.quantity} <br />
+                    </>
+                  ))}
+                </td>
+              </tr>
+            ))}
+        </tbody>
       </table>
     </Layout>
   );
